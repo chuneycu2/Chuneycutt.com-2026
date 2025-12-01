@@ -1,0 +1,31 @@
+@use "sass:map";
+
+// Grid (Bootstrap breakpoints)
+$grid-breakpoints: (
+    xs  : 0,
+    sm  : 576px,
+    md  : 768px,
+    lg  : 992px,
+    xl  : 1200px,
+    xxl : 1700px
+);
+
+// Sizing classes
+$sizes-list: (
+    25   : 25%,
+    50   : 50%,
+    75   : 75%,
+    100  : 100%,
+    auto : auto
+);
+$sizes: map.keys($sizes-list);
+
+// Colors
+$white : #ffffff;
+$black : #000000;
+
+// Color map
+$colors: (
+  "white" : $white,
+  "black" : $black
+);

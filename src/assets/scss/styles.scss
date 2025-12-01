@@ -1,0 +1,12 @@
+// Define variables, import functions and mixins
+@use '_variables.scss' as *;
+@use 'base/_mixins.scss';
+
+// Import AOS (animations)
+//@use '../../node_modules/aos/src/sass/aos.scss';
+
+// Import reboot styles
+@use 'base/_reboot.scss';
+
+// Import Bootstrap core styles
+@use 'base/_bootstrap.scss';
