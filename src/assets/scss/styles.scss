@@ -15,6 +15,18 @@
 // Import typography
 @use 'base/_typography.scss';
 
-// Import component styles
+// Import components
 @use 'components/_main.scss';
-@use 'components/_home.scss';
+// Import page-level components
+@use 'components/1-pages/home.scss';
+// Import template-level components
+@use 'components/2-templates/sidebar.scss';
+@use 'components/2-templates/content.scss';
+@use 'components/2-templates/titles.scss';
+// Import organism-level components
+@use 'components/3-organisms/menu.scss';
+@use 'components/3-organisms/section-entries.scss';
+// Import molecule-level components
+@use 'components/4-molecules/entry.scss';
+// Import atom-level components
+@use 'components/5-atoms/project-links.scss';

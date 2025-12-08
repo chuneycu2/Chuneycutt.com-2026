@@ -1,0 +1,9 @@
+@use '../../variables' as *;
+@use '../../base/mixins' as mixins;
+
+.content {
+    padding: 0;
+    @include mixins.media-breakpoint-up(md) {
+        padding: 0 1rem;
+    }
+}

@@ -18,6 +18,7 @@ h5, .h5 {
   line-height: 1;
   margin: 0;
   text-rendering: optimizeLegibility;
+  transition: .4s;
 }
 
 h1, .h1 {
@@ -37,6 +38,7 @@ p, .p {
   font-size: 1rem;
   font-weight: $light;
   margin: 0;
+  transition: .4s;
 }
 
 ul {
@@ -50,6 +52,7 @@ ul {
     padding-bottom: .25rem;
     position: relative;
     list-style: none;
+    transition: .4s;
     &:before {
       background-color: $teal;
       border-radius: 50%;

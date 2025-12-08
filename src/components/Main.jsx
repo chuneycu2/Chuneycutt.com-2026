@@ -1,12 +1,16 @@
-import React from 'react';
-import Home from '../components/Home'
+import { Routes, Route, Link } from 'react-router-dom';
+
+import Home from './1-pages/Home.jsx'
+import Projects from './1-pages/Projects.jsx'
 
 export default function Main() {
     return (
         <main>
             <div className="container-fluid p-0">
-                <Home />
-                {/* add Projects component here */}
+                <Routes>
+                    <Route path="/" element={<Home/>} />
+                    <Route path="/projects" element={<Projects/>} />
+                </Routes>
             </div>
         </main>
     )
