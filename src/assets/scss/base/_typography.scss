@@ -69,14 +69,30 @@ ul {
     &:before {
       background-color: $teal;
       border-radius: 50%;
-      bottom: 11px;
       content: "";
       display: block;
       height: .45rem;
       left: -18px;
       position: absolute;
+      top: 8px;
       width: .45rem;
     }
+  }
+}
+
+// Global section content (for about, project overviews, etc)
+.section-content {
+  p, ul {
+    padding-bottom: 1rem;
+  }
+  a {
+    color: $teal;
+  }
+  h4 {
+    font-family: $body;
+    font-size: 1.25rem;
+    font-weight: $xlight;
+    padding: 1rem 0;
   }
 }
 

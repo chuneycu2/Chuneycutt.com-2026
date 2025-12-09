@@ -11,11 +11,11 @@
             }
             &:before {
                 border-radius: 25px;
-                bottom: 1.125rem;
                 content: '';
                 display: flex;
                 height: .25rem;
                 left: 0;
+                top: 14px;
                 transition: .4s;
                 width: 5px;
             }

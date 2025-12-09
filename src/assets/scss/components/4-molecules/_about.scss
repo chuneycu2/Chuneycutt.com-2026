@@ -2,10 +2,38 @@
 @use '../../base/mixins' as mixins;
 
 .section-entry {
-  .about {
+  &.about {
     .bio-card {
+      img {
+        align-self: flex-start;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        height: 75px;
+        margin-right: .75rem;
+        transition: .4s;
+      }
+      h3 {
+        font-family: $headline;
+        font-weight: $xlight;
+      }
+      .entry-subtitle {
+        padding-bottom: .5rem;
+      }
       .project-links {
         padding: 0;
+        font-size: .85rem;
+      }
+    }
+    @include mixins.media-breakpoint-up(sm) {
+      &:hover,
+      &.active {
+        img {
+          border: 2px solid $teal;
+          transition: .4s;
+        }
+        &:after {
+          background-color: unset;
+        }
       }
     }
   }

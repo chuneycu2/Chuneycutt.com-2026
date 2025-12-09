@@ -7,6 +7,9 @@
         padding: 0 1rem;
     }
     .section-entries {
+        @include mixins.media-breakpoint-up(sm) {
+            padding-left: .5rem;
+        }
         aside {
             padding: 1rem 0;
         }
