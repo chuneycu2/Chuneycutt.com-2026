@@ -13,11 +13,25 @@ const router = createBrowserRouter([
         path: "*",
         element: <App/>,
         children: [
-            { index: true, Component: Home },
-            { path: "projects", Component: Projects }
+            {
+                index: true,
+                Component: Home,
+                loader: homeLoader,
+                HydrateFallback: () => <div></div>,
+            },
+            {
+                path: "projects",
+                Component: Projects,
+                loader: homeLoader,
+                HydrateFallback: () => <div></div>,
+            },
+            {
+                path: "projects/:slug",
+                Component: Home,
+                loader: homeLoader,
+                HydrateFallback: () => <div></div>,
+            }
         ],
-        loader: homeLoader,
-        HydrateFallback: () => <div></div>,
     },
 ]);
 
