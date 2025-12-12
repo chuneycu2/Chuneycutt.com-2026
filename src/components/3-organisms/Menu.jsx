@@ -1,10 +1,22 @@
+import { Link } from 'react-scroll';
+
 export default function Menu(props) {
 
     // Assemble menu items from component sections present in the data
     const sections  = props.sections;
-    const menuItems = sections?.map(sec => (
+    const menuItems = sections?.map((sec) => (
         <li key={sec.section_title}>
-            <a href={'#' + sec.section_title.replace(/\s/g, '')}>{sec.section_title}</a>
+            {/* see options: https://www.npmjs.com/package/react-scroll */}
+            <Link
+                activeClass="active"
+                spy={true}
+                to={sec.section_title.replace(/\s/g, '')}
+                smooth={true}
+                duration={400}
+                offset={-36}
+                spyThrottle={200}>
+                {sec.section_title}
+            </Link>
         </li>
     ));
 

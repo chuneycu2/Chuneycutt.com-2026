@@ -13,6 +13,7 @@ export default function Home() {
     const pageData = DataParser(data[0].posts);
     const mediaData = data[0].media;
     const thisPage = pageData[0].acf;
+    console.log(data);
 
     return (
         <div className="container-main home row m-0">

@@ -9,8 +9,7 @@ import Projects from "./components/1-pages/Projects";
 import DataLoader from "./components/data/DataLoader.js";
 import DataAndMediaLoader from "./components/data/DataAndMediaLoader.js";
 
-const revalidator = ({ currentUrl, nextUrl }) => {
-    if (currentUrl.hash !== nextUrl.hash) return false
+const revalidator = ({ nextUrl }) => {
     if (nextUrl.hash) return false;
 }
 
@@ -24,21 +23,29 @@ const router = createBrowserRouter([
                 Component: Home,
                 loader: DataAndMediaLoader,
                 HydrateFallback: () => <div><p className="h1">Loading...</p></div>,
-                shouldRevalidate: revalidator,
+                shouldRevalidate: ({ currentUrl, nextUrl }) => {
+                    // Check if the pathname and search params are the same
+                    const isSamePage = currentUrl.pathname === nextUrl.pathname &&
+                        currentUrl.search === nextUrl.search;
+
+                    // If it's the same page but a different hash, return false to skip loader
+                    if (isSamePage && currentUrl.hash !== nextUrl.hash) {
+                        return false;
+                    }
+                    return true; // Revalidate for other changes
+                }
             },
             {
                 path: "projects",
                 Component: Projects,
-                loader: DataLoader,
+                loader: DataAndMediaLoader,
                 HydrateFallback: () => <div></div>,
-                shouldRevalidate: revalidator,
             },
             {
                 path: "projects/:slug",
                 Component: Home,
-                loader: DataLoader,
+                loader: DataAndMediaLoader,
                 HydrateFallback: () => <div></div>,
-                shouldRevalidate: revalidator,
             }
         ],
     },

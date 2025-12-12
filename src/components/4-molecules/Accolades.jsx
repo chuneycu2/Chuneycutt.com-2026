@@ -4,15 +4,13 @@ import CyrusPic from "../../assets/img/cyrus-pic.jpg";
 
 export default function Accolades(props) {
     const { content, media } = props;
-    console.log(content);
-    console.log(media);
 
+    // Get attribution image by filtering for matching ID
     const attributionImage = media?.filter((img) => {
         if (img.id === content?.attribution_image) {
             return img;
         }
     });
-    console.log(attributionImage);
 
     return (
         <>

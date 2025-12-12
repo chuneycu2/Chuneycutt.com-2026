@@ -9,7 +9,7 @@ export default function Projects(props) {
             return img;
         }
     });
-    console.log(content);
+
     return (
         <div className="entry-container">
             {/* programmatically map through props to render each experience */}
