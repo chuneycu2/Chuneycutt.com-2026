@@ -3,20 +3,25 @@ import ProjectLinks from "../5-atoms/ProjectLinks.jsx";
 
 
 export default function Projects(props) {
-    console.log(props);
-    {/* add logic to fetch thumbnail images from media API? or do this at top level? */}
+    const { content, media } = props;
+    const projectImage = media?.filter((img) => {
+        if (img.id === content?.project_image) {
+            return img;
+        }
+    });
+    console.log(content);
     return (
         <div className="entry-container">
             {/* programmatically map through props to render each experience */}
-            <h3>Instaclustr.com</h3>
-            <p className="entry-subtitle">NetApp Instaclustr</p>
+            <h3>{content.project_title}</h3>
+            <p className="entry-subtitle">{content.project_company}</p>
             <div className="d-block d-sm-flex">
                 <div className="project-thumbnail">
-                    <img src={SampleImg} alt="sample thumbnail" />
+                    <img src={media && projectImage[0].source_url} alt={media && projectImage[0].alt_text} />
                 </div>
                 <div className="project-info">
-                    <p className="entry-description">As part of an acquisition by NetApp, the site was built on a dated codebase that was inflexible and poorly optimized. Before redesigning the front end, I set up a development pipeline and cleaned out the codebase.</p>
-                    {/*add links*/}
+                    <p className="entry-description">{content.project_intro}</p>
+                    <ProjectLinks links={content.links} />
                 </div>
             </div>
         </div>

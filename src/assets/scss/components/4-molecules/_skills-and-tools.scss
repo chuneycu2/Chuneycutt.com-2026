@@ -3,7 +3,7 @@
 
 .section-entry {
   &.skills-and-tools,
-  &.accolade {
+  &.accolades {
     position: relative;
     .entry-container {
       border: none;
@@ -15,7 +15,7 @@
       .skills-container {
         position: relative;
         transition: .4s;
-        @include mixins.media-breakpoint-up(sm) {
+        @include mixins.media-breakpoint-up(md) {
           left: -26px;
         }
         .skills-category {
@@ -38,6 +38,7 @@
         position: absolute;
         top: 1.75rem;
         transform: rotate(180deg);
+
         // Timeline (pseudo element so height can be adjusted)
         &:before {
           background-color: $gray;
@@ -45,14 +46,14 @@
           bottom: 0;
           content: '';
           display: block;
-          height: calc(100% - 1.75rem);
+          height: calc(100% - 1.75rem); // space for icon at top
           left: -1px;
           position: absolute;
           transition: .25s;
           width: 2px;
         }
       }
-      @include mixins.media-breakpoint-up(sm) {
+      @include mixins.media-breakpoint-up(md) {
         .accent-line {
           &:before {
             background-color: transparent;
@@ -90,6 +91,18 @@
               left: 0;
               transition: .4s;
             }
+          }
+        }
+      }
+    }
+  }
+  // Keep accolades line always gray unless active
+  @include mixins.media-breakpoint-up(md) {
+    &.accolades {
+      .entry-container {
+        .accent-line {
+          &:before {
+            background-color: $gray;
           }
         }
       }

@@ -9,14 +9,15 @@ import Footnote from "../3-organisms/Footnotes.jsx";
 export default function Home() {
 
     // Fetch page and media data
-    const data  = useLoaderData();
-    const pageData = DataParser(data);
+    const data = useLoaderData();
+    const pageData = DataParser(data[0].posts);
+    const mediaData = data[0].media;
     const thisPage = pageData[0].acf;
 
     return (
         <div className="container-main home row m-0">
             <Sidebar name={thisPage.name} title={thisPage.title} intro={thisPage.intro} content={thisPage.components_react} />
-            <Content content={thisPage.components_react} />
+            <Content content={thisPage.components_react} media={mediaData} />
             <Footnote footnotes={thisPage.footnotes}/>
         </div>
     )

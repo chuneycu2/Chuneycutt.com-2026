@@ -7,12 +7,14 @@ export default async function DataLoader() {
 
     let domain = 'https://www.chuneycutt.com/';
     let postsEndpoint = 'wp-json/wp/v2/posts/';
+    //let mediaEndpoint = 'wp-json/wp/v2/media/?parent='
 
     async function fetchAllPosts() {
         try {
             const response = await fetch(domain + postsEndpoint);
             if (!response.ok) { throw new Error(`DataLoader response error: ${response.status}`); }
-            return await response.json();
+            const posts = await response.json();
+            return posts;
         } catch (error) {
             console.error('DataLoader fetch error:', error.message);
         }

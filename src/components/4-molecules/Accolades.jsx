@@ -2,26 +2,33 @@ import ProjectLinks from "../5-atoms/ProjectLinks.jsx";
 import IconQuote from "../5-atoms/icons/iconQuote.jsx";
 import CyrusPic from "../../assets/img/cyrus-pic.jpg";
 
-export default function Accolades() {
+export default function Accolades(props) {
+    const { content, media } = props;
+    console.log(content);
+    console.log(media);
+
+    const attributionImage = media?.filter((img) => {
+        if (img.id === content?.attribution_image) {
+            return img;
+        }
+    });
+    console.log(attributionImage);
+
     return (
         <>
             <div className="entry-container">
                 {/* programmatically map through props to render each skill/tool */}
                 <div className="accent-line"></div>
-                <IconQuote type={"top-icon"}/>
+                <IconQuote type={"top-icon"} />
                 <div className="quote-container">
-                    <blockquote>Cyrus is a top-notch developer, an excellent communicator, and a fast learner who
-                        handles
-                        pressure with grace. He's a great collaborator with excellent project management skills and the
-                        ability to optimize workflows, solve complex problems, and implement creative solutions.
-                    </blockquote>
+                    <blockquote>{content.accolade}</blockquote>
                 </div>
             </div>
             <div className="bio-card d-flex align-items-center">
-                <img src={CyrusPic} alt="cyrus"/>
+                <img src={attributionImage[0].source_url} alt={attributionImage[0].source_url}/>
                 <div className="bio">
-                    <h3>Cyrus Huneycutt</h3>
-                    <p className="entry-subtitle">Durham, NC, USA</p>
+                    <h3>{content.attribution_name}</h3>
+                    <p className="entry-subtitle">{content.attribution_title}</p>
                 </div>
             </div>
         </>

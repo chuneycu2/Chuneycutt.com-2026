@@ -7,6 +7,12 @@ import App from './App'
 import Home from "./components/1-pages/Home";
 import Projects from "./components/1-pages/Projects";
 import DataLoader from "./components/data/DataLoader.js";
+import DataAndMediaLoader from "./components/data/DataAndMediaLoader.js";
+
+const revalidator = ({ currentUrl, nextUrl }) => {
+    if (currentUrl.hash !== nextUrl.hash) return false
+    if (nextUrl.hash) return false;
+}
 
 const router = createBrowserRouter([
     {
@@ -16,20 +22,23 @@ const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home,
-                loader: DataLoader,
-                HydrateFallback: () => <div></div>,
+                loader: DataAndMediaLoader,
+                HydrateFallback: () => <div><p className="h1">Loading...</p></div>,
+                shouldRevalidate: revalidator,
             },
             {
                 path: "projects",
                 Component: Projects,
                 loader: DataLoader,
                 HydrateFallback: () => <div></div>,
+                shouldRevalidate: revalidator,
             },
             {
                 path: "projects/:slug",
                 Component: Home,
                 loader: DataLoader,
                 HydrateFallback: () => <div></div>,
+                shouldRevalidate: revalidator,
             }
         ],
     },
