@@ -18,7 +18,7 @@ export default function SectionEntries(props) {
         if (type === 'accolades') return (<Accolades content={content} media={media} />)
     }
 
-    const sectionEntries = entries?.map((entry) => (
+    const sectionEntries = entries?.map(entry => (
         <article key={entry.id} className={`section-entry ${type} `}>
             {entryTemplate(entry)}
         </article>

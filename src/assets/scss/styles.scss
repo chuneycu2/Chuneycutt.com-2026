@@ -19,6 +19,7 @@
 @use 'components/_main.scss';
 // Import page-level components
 @use 'components/1-pages/home.scss';
+@use 'components/1-pages/project-archive.scss';
 // Import template-level components
 @use 'components/2-templates/sidebar.scss';
 @use 'components/2-templates/content.scss';
